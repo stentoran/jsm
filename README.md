@@ -38,17 +38,19 @@ add a b // adds a to b, stores result in a
 nand b a // bitwise nands b and a, stores result in b
 cmp a b - sets the flags register by comparing a and b, currently the only flags are ==, >, and <
 jmpif - short for 'jump if this bit of the flags register is set to 1', so:	
-	cmp a b
-	jmpif label 1
-	// jump if a == b, aka the rightmost bits of the flags register are 001
+
+cmp a b
+jmpif label 1
+// jump if a == b, aka the rightmost bits of the flags register are 001
+
+cmp a b
+jmpif label 2
+// jump if a < b
+
+cmp a b
+jmpif label 4
+// jump if a > b
 	
-	cmp a b
-	jmpif label 2
-	// jump if a < b
-	
-	cmp a b
-	jmpif label 4
-	// jump if a > b
 :label
 
 // Microcode functions
